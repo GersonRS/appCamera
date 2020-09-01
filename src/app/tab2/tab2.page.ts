@@ -1,3 +1,4 @@
+import { PhotoService } from './../services/photo.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  photos = this.photoService.photos;
 
+  constructor(public photoService: PhotoService) {}
+
+  addPhotoToGallery(){
+    this.photoService.addNewToGallery();
+  }
 }
