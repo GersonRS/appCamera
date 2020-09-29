@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img class="image-center" src="assets/login.png"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Login</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="formulario">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <p
+          ion-text
+          class="text08"
+          *ngIf="formulario.get('email').touched && formulario.get('email').hasError('required')"
+        >
+          <ion-text color="danger">
+            Este campo é obrigatório
+          </ion-text>
+        </p>
+        <p
+          ion-text
+          class="text08"
+          *ngIf="formulario.get('email').touched && formulario.get('email').hasError('email')"
+        >
+          <ion-text color="danger">
+            Informe um E-mail valido
+          </ion-text>
+        </p>
+        <ion-item>
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <p
+          ion-text
+          class="text08"
+          *ngIf="formulario.get('password').touched && formulario.get('password').hasError('required')"
+        >
+          <ion-text color="danger">
+            Este campo é obrigatório
+          </ion-text>
+        </p>
+      </form>
+      <ion-button expand="block" (click)="login()" [disabled]="!formulario.valid">Login</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

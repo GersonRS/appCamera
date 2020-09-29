@@ -14,4 +14,8 @@
   </ion-header>
 
   <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div *ngIf="user$ | async as user" >
+    {{user.email}}
+  </div>
+  <ion-button expand="block" (click)="logout()">SignOut</ion-button>
 </ion-content>
